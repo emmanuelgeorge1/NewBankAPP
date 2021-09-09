@@ -1,0 +1,210 @@
+<section class="vh-100 bg-image" style="background-image: url('dash.jpg')">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <h3
+          class="mb-5"
+          style="text-align: center; color: whitesmoke; font-weight: 1000"
+        >
+          Welcome {{ name }}
+        </h3>
+        <div
+          class="card card-registration card-registration-2"
+          style="border-radius: 15px"
+        >
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5" style="color: #4835d4">Deposit</h3>
+                  <form
+                    [formGroup]="depositForm"
+                    class="box"
+                    (ngSubmit)="deposit()"
+                  >
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline">
+                        <input
+                          type="text"
+                          id="form3Examplev2"
+                          class="form-control form-control-lg"
+                          formControlName="acc"
+                        />
+                        <label class="form-label" for="form3Examplev2"
+                          >Account Number</label
+                        >
+                        <div
+                          *ngIf="
+                            (this.depositForm.get('acc')?.touched ||
+                              this.depositForm.get('acc')?.dirty) &&
+                            this.depositForm.get('acc')?.errors
+                          "
+                          class="errors"
+                        >
+                          Invalid Account Number
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline">
+                        <input
+                          type="password"
+                          id="form3Examplev4"
+                          class="form-control form-control-lg"
+                          formControlName="pass"
+                        />
+                        <label class="form-label" for="form3Examplev4"
+                          >Password</label
+                        >
+                        <div
+                          *ngIf="
+                            (this.depositForm.get('pass')?.touched ||
+                              this.depositForm.get('pass')?.dirty) &&
+                            this.depositForm.get('pass')?.errors
+                          "
+                          class="errors"
+                        >
+                          Invalid Password
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
+                        <div class="form-outline">
+                          <input
+                            type="text"
+                            id="form3Examplev5"
+                            class="form-control form-control-lg"
+                            formControlName="amt"
+                          />
+                          <label class="form-label" for="form3Examplev5"
+                            >Amount</label
+                          >
+                          <div
+                            *ngIf="
+                              (this.depositForm.get('amt')?.touched ||
+                                this.depositForm.get('amt')?.dirty) &&
+                              this.depositForm.get('amt')?.errors
+                            "
+                            class="errors"
+                          >
+                            Invalid Amount
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <button
+                      type="submit"
+                      class="btn btn-light btn-lg"
+                      data-mdb-ripple-color="dark"
+                    >
+                      Deposit
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="col-lg-6 bg-indigo text-black">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5" style="color: #4835d4">
+                    WithDraw
+                  </h3>
+                  <form
+                    [formGroup]="withdrawForm"
+                    class="box1"
+                    (ngSubmit)="withdraw()"
+                  >
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline form-black">
+                        <input
+                          type="text"
+                          id="form3Examplea3"
+                          class="form-control form-control-lg"
+                          formControlName="acc"
+                        />
+                        <label class="form-label" for="form3Examplea3"
+                          >Account Number</label
+                        >
+                        <div
+                          *ngIf="
+                            (this.withdrawForm.get('acc')?.touched ||
+                              this.withdrawForm.get('acc')?.dirty) &&
+                            this.withdrawForm.get('acc')?.errors
+                          "
+                          class="errors"
+                        >
+                          Invalid Account Number
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-4 pb-2">
+                      <div class="form-outline form-black">
+                        <input
+                          type="text"
+                          id="form3Examplea6"
+                          class="form-control form-control-lg"
+                          formControlName="pass"
+                        />
+                        <label class="form-label" for="form3Examplea6"
+                          >Password</label
+                        >
+                        <div
+                          *ngIf="
+                            (this.withdrawForm.get('pass')?.touched ||
+                              this.withdrawForm.get('pass')?.dirty) &&
+                            this.withdrawForm.get('pass')?.errors
+                          "
+                          class="errors"
+                        >
+                          Invalid Password
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <div class="form-outline form-black">
+                        <input
+                          type="text"
+                          id="form3Examplea9"
+                          class="form-control form-control-lg"
+                          formControlName="amt"
+                        />
+                        <label class="form-label" for="form3Examplea9"
+                          >Amount</label
+                        >
+                        <div
+                          *ngIf="
+                            (this.withdrawForm.get('amt')?.touched ||
+                              this.withdrawForm.get('amt')?.dirty) &&
+                            this.withdrawForm.get('amt')?.errors
+                          "
+                          class="errors"
+                        >
+                          Invalid Amount
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                    <br />
+                    <button
+                      type="submit"
+                      class="btn btn-light btn-lg"
+                      data-mdb-ripple-color="dark"
+                    >
+                      WithDraw
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

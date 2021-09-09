@@ -1,0 +1,68 @@
+<section class="vh-100 bg-image" style="background-image: url('log.jpg')">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem">
+          <div class="card-body p-5 text-center">
+            <h3 class="mb-5">E-Bank Login {{ temp }}</h3>
+            <form [formGroup]="loginForm" class="box" (ngSubmit)="Login()">
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="typeEmailX"
+                  class="form-control form-control-lg"
+                  formControlName="acc"
+                />
+                <label class="form-label" for="typeEmailX"
+                  >Account Number</label
+                >
+                <div
+                  *ngIf="
+                    (this.loginForm.get('acc')?.touched ||
+                      this.loginForm.get('acc')?.dirty) &&
+                    this.loginForm.get('acc')?.errors
+                  "
+                  class="errors"
+                >
+                  Invalid Account Number
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <input
+                  type="password"
+                  id="typePasswordX"
+                  class="form-control form-control-lg"
+                  formControlName="pass"
+                />
+                <label class="form-label" for="typePasswordX">Password</label>
+                <div
+                  *ngIf="
+                    (this.loginForm.get('pass')?.touched ||
+                      this.loginForm.get('pass')?.dirty) &&
+                    this.loginForm.get('pass')?.errors
+                  "
+                  class="errors"
+                >
+                  Invalid Password
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-lg btn-block" type="submit">
+                Login
+              </button>
+
+              <hr class="my-4" />
+              <a
+                class="btn btn-lg btn-block btn-secondary btn-block"
+                routerLink="registration"
+              >
+                Create New Account
+              </a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
